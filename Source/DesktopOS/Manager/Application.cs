@@ -30,18 +30,18 @@ internal sealed class Application : Game
 
         var path = Path.Combine(Directory.GetCurrentDirectory(), "Content", "Macintosh Regular.ttf");
         var io = ImGui.GetIO();
-        _font = io.Fonts.AddFontFromFileTTF(path, 32.0f);
+        _font = io.Fonts.AddFontFromFileTTF(path, 42.0f);
 
         _renderer.RebuildFontAtlas();
 
-        LightTheme.ApplyThemeValues(Theme.Current);
+        LightTheme.ApplyThemeTo(Theme.Current);
 
         base.Initialize();
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(new Microsoft.Xna.Framework.Color(1f, 1f, 1f));
+        GraphicsDevice.Clear(Microsoft.Xna.Framework.Color.White);
 
         _renderer!.BeginLayout(gameTime);
         //ImGui.PushFont(_font);
@@ -57,8 +57,16 @@ internal sealed class Application : Game
         var menu = new Menu();
         menu.Draw();
 
-        ImGui.Begin("Dear ImGui Style Editor");
-        ImGui.ShowStyleEditor();
+        //var io = ImGui.GetIO();
+        //ImGui.SetNextWindowPos(System.Numerics.Vector2.Zero);
+        //ImGui.SetNextWindowSize(io.DisplaySize);
+
+        ImGui.Begin("main");
+        var draw = ImGui.GetWindowDrawList();
+        draw.AddRect(new System.Numerics.Vector2(10.0f), new System.Numerics.Vector2(50.0f), 0);
+
+        //ImGui.ShowDemoWindow();
+        //ImGui.ShowStyleEditor();
         ImGui.End();
     }
 }

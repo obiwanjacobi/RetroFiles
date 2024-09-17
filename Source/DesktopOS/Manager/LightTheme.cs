@@ -8,7 +8,7 @@ internal sealed class LightTheme : IThemeBuilder
     private readonly static Color LightGray = new(240, 240, 240);
     private readonly static Color White = new(255, 255, 255);
 
-    public static void ApplyThemeValues(Theme theme)
+    public static void ApplyThemeTo(Theme theme)
     {
         theme.Font.Size = 20;
 

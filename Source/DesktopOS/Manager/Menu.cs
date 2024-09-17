@@ -11,6 +11,7 @@ internal sealed class Menu
     public void Draw()
     {
         if (ImGui.BeginMainMenuBar())
+        //if (ImGui.BeginMenuBar())
         {
             if (ImGui.BeginMenu("Desktop"))
             {
@@ -21,6 +22,7 @@ internal sealed class Menu
                 ImGui.EndMenu();
             }
             ImGui.EndMainMenuBar();
+            //ImGui.EndMenuBar();
         }
     }
 }

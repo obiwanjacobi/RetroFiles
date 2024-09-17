@@ -318,7 +318,7 @@ internal sealed class ThemeFont
 
 internal interface IThemeBuilder
 {
-    static abstract void ApplyThemeValues(Theme theme);
+    static abstract void ApplyThemeTo(Theme theme);
 }
 
 internal struct Color
